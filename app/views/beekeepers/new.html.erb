@@ -1,0 +1,22 @@
+<h1>Register as a new Beekeeper</h1>
+
+<%= form_for :beekeeper, url: beekeepers_path do |f| %>
+  <p>
+    <%= f.label :"First name" %><br>
+    <%= f.text_field :fname %>
+  </p>
+ 
+  <p>
+    <%= f.label :"Last name" %><br>
+    <%= f.text_field :lname %>
+  </p>
+
+  <p>
+    <%= f.label :Region %><br>
+    <%= f.text_field :region %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

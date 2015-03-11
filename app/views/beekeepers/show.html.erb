@@ -1,0 +1,45 @@
+<h2>
+  <strong>First name:</strong>
+  <%= @beekeeper.fname %>
+</h2>
+
+<h2>
+  <strong>Last name:</strong>
+  <%= @beekeeper.lname %>
+</h2>
+
+<h2>
+  <strong>Region:</strong>
+  <%= @beekeeper.region %>
+</h2>
+
+<h3>Hives</h3>
+<% @beekeeper.hives.each do |hive| %>
+  <p>
+    <strong>Hive name:</strong>
+    <%= hive.name =%>
+  </p>
+
+  <p>
+    <strong>Population</strong>
+    <%= hive.population =%>
+  </p>
+<% end %>
+
+<h3>Add a hive:</h3>
+<%= form_for([@beekeeper, @beekeeper.hives.build]) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :population %><br>
+    <%= f.text_field :population %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'View hive details', beekeeper_hive_path(@hive,@beekeeper) %>
+

@@ -1,0 +1,42 @@
+<h2>Hives</h2>
+<% @beekeeper.hives.each do |hive| %>
+  <p>
+    <strong>Hive name:</strong>
+    <%= hive.name =%>
+  </p>
+
+  <p>
+    <strong>Population</strong>
+    <%= hive.population =%>
+  </p>
+<% end %>
+
+<h2>Diseases</h2>
+<% @beekeeper.hives.each do |hive| %>
+  <p>
+    <strong>Hive name:</strong>
+    <%= hive.name =%>
+  </p>
+
+  <p>
+    <strong>Population</strong>
+    <%= hive.population =%>
+  </p>
+<% end %>
+
+<h2>Log a disease:</h2>
+<%= form_for([@hive, @hives.disease.build]) do |f| %>
+  <p>
+    <%= f.label :disease %><br>
+    <%= f.text_field :disease %>
+  </p>
+  <p>
+    <%= f.lable :date_found %><br>
+    <%= f.text_field :date_found %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back to profile', beekeepers_path %>
